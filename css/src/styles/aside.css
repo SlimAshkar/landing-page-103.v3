@@ -1,0 +1,45 @@
+.categories{
+    border: solid;
+    padding-left: 2rem;
+    margin: 2rem 5rem 0rem 0rem;
+}
+
+.recent-posts{
+    border: solid;
+    padding-left: 2rem;
+    margin: 2rem 5rem 0rem 0rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .thumb {
+    flex: 1;
+}
+
+.wrapper .content {
+    flex: 2;
+    padding: 16px;
+}
+
+.wrapper p,span,a {
+font-size: 1.4rem;
+margin: 0;
+}
+
+@media only screen and(max-width:768px) {
+    .blog-conatiner{
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    main{
+        grid-template-columns: 1fr;
+    }
+
+    .wrapper{
+        margin: 24px 0;
+    }
+}
