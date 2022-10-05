@@ -91,8 +91,9 @@ a{
 .blog-conatiner{
     width: 80%;
     margin: 0 auto;
-    
 }
+
+
 
 img{
     max-width: 100%;
@@ -118,4 +119,8 @@ hr{
 aside section {
     display: flex;
     flex-direction: column;
+}
+
+#home{
+    display: none;
 }

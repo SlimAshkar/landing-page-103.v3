@@ -21,39 +21,39 @@
 /**
  * Define Global Variables
  * 
-*/
-function activateNavigation() {
-    const sections = document.querySelectorAll(".section");
-    const navContainer = document.createElement("floating-nav");
-    const navItems = Array.from(sections).map(section => {
-        return `
-            <div class="nav-item" data-for-section="${section.id}">
-              <a href="#${section.id}" class="nav-link"></a>
-              <span class="nav-label">${section.dataset.label}</span>
-            </div>
-        `;
-    });
+// */
+// function activateNavigation() {
+//     const sections = document.querySelectorAll(".section");
+//     const navContainer = document.createElement("floating-nav");
+//     const navItems = Array.from(sections).map(section => {
+//         return `
+//             <div class="nav-item" data-for-section="${section.id}">
+//               <a href="#${section.id}" class="nav-link"></a>
+//               <span class="nav-label">${section.dataset.label}</span>
+//             </div>
+//         `;
+//     });
 
-    console.log(navContainer) 
+//     console.log(navContainer) 
 
-    navContainer.classList.add("floating-nav");
-    navContainer.innerHTML = navItems.join("");
+//     navContainer.classList.add("floating-nav");
+//     navContainer.innerHTML = navItems.join("");
 
-    const observer = new IntersectionObserver(entries => {
-      document.querySelectorAll(".nav-link").forEach(navLink => {
-        navLink.classList.remove("nav-link-selected");
-      });
+//     const observer = new IntersectionObserver(entries => {
+//       document.querySelectorAll(".nav-link").forEach(navLink => {
+//         navLink.classList.remove("nav-link-selected");
+//       });
 
-      const visibleSection = entries.filter(entry => entry.isIntersecting)[0];
-      console.log(visibleSection);
-    }, { threshold: 0.5});
+//       const visibleSection = entries.filter(entry => entry.isIntersecting)[0];
+//       console.log(visibleSection);
+//     }, { threshold: 0.5});
 
-    sections.forEach(section => observer.observe(section));
+//     sections.forEach(section => observer.observe(section));
 
-    document.body.appendChild(navContainer);
-  }
+//     document.body.appendChild(navContainer);
+//   }
 
-    activateNavigation();
+//     activateNavigation();
 
 /**
  * End Global Variables
@@ -102,4 +102,23 @@ function activateNavigation() {
 
 // Set sections as active
 
+let menu = document.getElementById("menu");
+let viewportHeight = window.innerHeight;
+let navHeight = document.getElementById("menu").offsetHeight;
 
+let navbarLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", e => {
+  scrollpos = window.scrollY;
+  console.log(scrollpos);
+  // navbarLinks.forEach(link => {
+    // let section = document.querySelector(link.hash);
+    if (scrollpos >= 100 ){ 
+      console.log("Show menu!")
+      menu.classList.add("active");
+    } else {
+      menu.classList.remove("active");
+    }
+  // });
+});
+//read more about classList
