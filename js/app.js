@@ -151,7 +151,7 @@ callSections.forEach((section) => {
     const bound = section.getBoundingClientRect();
     const menuId = section.getAttribute("id")
     const link = document.querySelector(`[href = "#${menuId}"]`);
-    if (bound.top >= 0 && bound.top <= 100){ 
+    if (bound.top >= 0 && bound.top <= 200){ 
       // console.log("Show section!")
       link.classList.add("active");
     } else {
@@ -166,4 +166,19 @@ menu.addEventListener("click", (e) => {
   const href = document.querySelector(targetLink.getAttribute("href"));
   href.scrollIntoView({behavior: "smooth"});
 });
+
+const form = document.querySelector(".form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const success = document.createElement("p");
+  success.textContent = "Thank you for SUBSCRIBING!";
+  form.append(success);
+  form.reset();
+  setTimeout(() => {
+    success.remove();
+
+  }, 3000);
+});
+
+
 //read more about classList
