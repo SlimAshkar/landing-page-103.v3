@@ -18,10 +18,24 @@
 #menu.active{
     opacity: 1;
 }
+
+.links.active{
+    border-bottom: solid 2px white;
+}
+
 #menu.sticky {
     position: fixed;
     top: 0;
   }
+
+#menu-list{
+    display: flex;
+    justify-content: center;
+}
+
+#menu-list li{
+    list-style: none;
+}
 
 nav a {
     color: white;

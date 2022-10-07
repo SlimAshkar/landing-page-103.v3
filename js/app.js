@@ -105,8 +105,32 @@
 let menu = document.getElementById("menu");
 let viewportHeight = window.innerHeight;
 let navHeight = document.getElementById("menu").offsetHeight;
-
+const callSections = document.querySelectorAll(".menu-links")
+console.log(callSections);
 let navbarLinks = document.querySelectorAll("nav a");
+
+const menuList = document.querySelector("#menu-list");
+const menuHeaders = ["header","blog","subscribe","contact"];
+
+function createList () {
+  menuHeaders.forEach((header,index) => {
+    const lists = document.createElement("li");
+    const link = document.createElement("a");
+    link.textContent = header;
+    link.setAttribute("class", "links");
+    link.setAttribute("href",`#${callSections[index].id}`);
+    menuList.appendChild(lists);
+    lists.appendChild(link);
+    console.log(lists);
+  });
+}
+
+createList();
+
+//         <li><a href="#header" class="active">Home</a> </li>
+//         <li><a href="#blog">Blog</a></li>
+//         <li><a href="#subscribe">Subscribe</a></li>
+//         <li><a href="#contact">Contact</a> --></li>
 
 window.addEventListener("scroll", e => {
   scrollpos = window.scrollY;
@@ -120,5 +144,26 @@ window.addEventListener("scroll", e => {
       menu.classList.remove("active");
     }
   // });
+});
+
+callSections.forEach((section) => {
+  window.addEventListener("scroll", () => {
+    const bound = section.getBoundingClientRect();
+    const menuId = section.getAttribute("id")
+    const link = document.querySelector(`[href = "#${menuId}"]`);
+    if (bound.top >= 0 && bound.top <= 100){ 
+      // console.log("Show section!")
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  })
+})
+
+menu.addEventListener("click", (e) => {
+  e.preventDefault();
+  const targetLink = e.target;``
+  const href = document.querySelector(targetLink.getAttribute("href"));
+  href.scrollIntoView({behavior: "smooth"});
 });
 //read more about classList
