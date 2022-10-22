@@ -20,40 +20,6 @@
 
 /**
  * Define Global Variables
- * 
-// */
-// function activateNavigation() {
-//     const sections = document.querySelectorAll(".section");
-//     const navContainer = document.createElement("floating-nav");
-//     const navItems = Array.from(sections).map(section => {
-//         return `
-//             <div class="nav-item" data-for-section="${section.id}">
-//               <a href="#${section.id}" class="nav-link"></a>
-//               <span class="nav-label">${section.dataset.label}</span>
-//             </div>
-//         `;
-//     });
-
-//     console.log(navContainer) 
-
-//     navContainer.classList.add("floating-nav");
-//     navContainer.innerHTML = navItems.join("");
-
-//     const observer = new IntersectionObserver(entries => {
-//       document.querySelectorAll(".nav-link").forEach(navLink => {
-//         navLink.classList.remove("nav-link-selected");
-//       });
-
-//       const visibleSection = entries.filter(entry => entry.isIntersecting)[0];
-//       console.log(visibleSection);
-//     }, { threshold: 0.5});
-
-//     sections.forEach(section => observer.observe(section));
-
-//     document.body.appendChild(navContainer);
-//   }
-
-//     activateNavigation();
 
 /**
  * End Global Variables
@@ -61,25 +27,11 @@
  * 
 */
 
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
-
-// function makeActive(){
-//     for (cons section of sections) {
-//         const box = section.getBoundingClientRect();
-//         //Find a value that works best, but 150 seems to be a good start.
-//         if (box.top <= VALUE && box.bottom >= VALUE) {
-//         //apply active state on current section and corresponding Nav link
-//         } else {
-//         //Remove active state from other section and corresponding Nav link
-//         }
-//      }
-//   }
 
 // build the nav
 
@@ -124,26 +76,17 @@ function createList () {
     console.log(lists);
   });
 }
-
 createList();
-
-//         <li><a href="#header" class="active">Home</a> </li>
-//         <li><a href="#blog">Blog</a></li>
-//         <li><a href="#subscribe">Subscribe</a></li>
-//         <li><a href="#contact">Contact</a> --></li>
 
 window.addEventListener("scroll", e => {
   scrollpos = window.scrollY;
   console.log(scrollpos);
-  // navbarLinks.forEach(link => {
-    // let section = document.querySelector(link.hash);
     if (scrollpos >= 100 ){ 
       console.log("Show menu!")
       menu.classList.add("active");
     } else {
       menu.classList.remove("active");
     }
-  // });
 });
 
 callSections.forEach((section) => {
@@ -152,7 +95,6 @@ callSections.forEach((section) => {
     const menuId = section.getAttribute("id")
     const link = document.querySelector(`[href = "#${menuId}"]`);
     if (bound.top >= 0 && bound.top <= 200){ 
-      // console.log("Show section!")
       link.classList.add("active");
     } else {
       link.classList.remove("active");
@@ -179,6 +121,5 @@ form.addEventListener("submit", (e) => {
 
   }, 3000);
 });
-
 
 //read more about classList
