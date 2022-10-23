@@ -5,7 +5,7 @@
     /* display: flex;
     flex-direction: column; */
     /* align-items: center; */
-    width: 30%;
+    width: 50%;
     text-align: center;
     padding: 20px;
 }
@@ -26,13 +26,17 @@
     padding-top: 14px;
 }
 
+#sub{
+    font-size: 1rem;
+    color: red;
+}
+
 @media only screen and (max-width:768px){
     form {
-        /* flex-grow:inherit;
          display: flex;
-        flex-direction: column;
-         align-items: center;
-         justify-content: center;  */
+         flex-direction: column;
+         /* align-items: center; */
+         flex-shrink: inherit;
     }
 
     #subscribe{

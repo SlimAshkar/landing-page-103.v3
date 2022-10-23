@@ -113,6 +113,7 @@ const form = document.querySelector(".form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const success = document.createElement("p");
+  success.setAttribute("id", "sub");
   success.textContent = "Thank you for SUBSCRIBING!";
   form.append(success);
   form.reset();
@@ -121,5 +122,7 @@ form.addEventListener("submit", (e) => {
 
   }, 3000);
 });
+
+// Create flexbox with dom
 
 //read more about classList
