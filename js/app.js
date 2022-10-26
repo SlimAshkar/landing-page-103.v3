@@ -65,16 +65,15 @@ const menuList = document.querySelector("#menu-list");
 const menuHeaders = ["header","blog","subscribe","contact"];
 
 function createList () {
-  menuHeaders.forEach((header,index) => {
-    const lists = document.createElement("li");
-    const link = document.createElement("a");
-    link.textContent = header;
-    link.setAttribute("class", "links");
-    link.setAttribute("href",`#${callSections[index].id}`);
-    menuList.appendChild(lists);
-    lists.appendChild(link);
-    console.log(lists);
-  });
+  for(let i = 0; i < callSections.length; i++) {
+      const lists = document.createElement("li");
+      const link = document.createElement("a");
+      link.textContent = `${callSections[i].id}`;
+      link.setAttribute("class", "links");
+      link.setAttribute("href",`#${callSections[i].id}`);
+      menuList.appendChild(lists);
+      lists.appendChild(link);
+  }
 }
 createList();
 
@@ -122,7 +121,5 @@ form.addEventListener("submit", (e) => {
 
   }, 3000);
 });
-
-// Create flexbox with dom
 
 //read more about classList
